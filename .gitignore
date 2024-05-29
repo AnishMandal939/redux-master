@@ -1,2 +1,8 @@
 # add node_modules to ignore no matter any nested folder appears
 node_modules
+
+# add .env to ignore
+.env
+
+# remove .ds_store
+.DS_Store
