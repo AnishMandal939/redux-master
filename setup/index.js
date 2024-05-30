@@ -3,6 +3,9 @@ const redux = require('redux');
 
 const createStore = redux.createStore;
 
+// create action binders
+const bindActionCreators = redux.bindActionCreators;
+
 
 const CAKE_ORDERED = 'CAKE_ORDERED';
 const CAKE_RESTOCKED = 'CAKE_RESTOCKED';
@@ -54,12 +57,22 @@ console.log('initial state', store.getState())
 const unsubscribe = store.subscribe(() => console.log('updated state', store.getState()));
 
 //4th resp  dispatch
-store.dispatch(orderCake())
-store.dispatch(orderCake())
-store.dispatch(orderCake())
+//store.dispatch(orderCake())
+//store.dispatch(orderCake())
+//store.dispatch(orderCake())
 
 // restock 
-store.dispatch(reStockCake(3))
+//store.dispatch(reStockCake(3))
+//
+//for bind action bindActionCreators
+
+const actions = bindActionCreators({orderCake, reStockCake}, store.dispatch);
+
+// call actions - how many times you want
+actions.orderCake()
+actions.orderCake()
+actions.orderCake()
+actions.reStockCake(3)
 unsubscribe()
 
 
