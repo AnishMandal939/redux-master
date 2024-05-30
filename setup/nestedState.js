@@ -1,6 +1,9 @@
 
 const redux = require('redux');
 const createStore = redux.createStore;
+
+const produce = require('immer').produce;
+
 const initialState = {
   name: 'Anish',
   address: {
@@ -27,13 +30,17 @@ const updateStreet = (street) => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case STREET_UPDATED:
-      return{
+      /**return{
         ...state,
         address: {
           ...state.address, // for city and state unaffected , making copy of org value
           street: action.payload,
         }
-      }
+      }*/
+    // making use of immer , 1st arg : initialState, 2md arg : callback fn with draft arg
+    return produce(state, (draft) => {
+        draft.address.street = action.payload
+      })
     default:
       return state;
   }

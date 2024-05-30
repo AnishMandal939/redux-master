@@ -10,3 +10,7 @@ One store for the entire application
   ## since this is not a react application 
     - inorder to import library we have to use `require() - method` but we can also use `import` by just adding `type: module` in package.json
 
+
+## to manage nestedState - 
+  - we'll be making use of Immer package :
+    - npm i immer
