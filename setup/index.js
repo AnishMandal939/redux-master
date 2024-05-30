@@ -9,6 +9,8 @@ const bindActionCreators = redux.bindActionCreators;
 
 const CAKE_ORDERED = 'CAKE_ORDERED';
 const CAKE_RESTOCKED = 'CAKE_RESTOCKED';
+const ICECREAM_ORDERED = 'ICECREAM_ORDERED';
+const ICECREAM_RESTOCKED = 'ICECREAM_RESTOCKED';
 
 function orderCake(){
   return {
@@ -23,11 +25,26 @@ function reStockCake(qty=1){
     payload: qty
   }
 }
+
+function orderIceCream(qty =1) {
+  return{
+    type: ICECREAM_ORDERED,
+    payload: qty
+  } 
+}
+
+function restockIceCream(qty=1) {
+  return{
+    type: ICECREAM_RESTOCKED,
+    payload: qty
+  }
+}
 //(previousState, action) => newState
 //
 
 const initialState = {
   numOfCakes: 10,
+  numOfIceCreams: 20
 }
 
 const reducer = (state = initialState, action) => {
@@ -42,6 +59,16 @@ const reducer = (state = initialState, action) => {
           ...state,
           numOfCakes: state.numOfCakes + action.payload
       }
+      case ICECREAM_ORDERED:
+         return{
+           ...state,
+           numOfIceCreams: state.numOfIceCreams - 1
+      }
+      case ICECREAM_RESTOCKED:
+        return{
+          ...state,
+        numOfIceCreams: state.numOfIceCreams + action.payload
+      }
       default:
         return state;
     }
@@ -54,7 +81,8 @@ const reducer = (state = initialState, action) => {
 console.log('initial state', store.getState())
 
 // 3rd resp
-const unsubscribe = store.subscribe(() => console.log('updated state', store.getState()));
+const unsubscribe = store.subscribe(() =>
+  console.log('updated state', store.getState()));
 
 //4th resp  dispatch
 //store.dispatch(orderCake())
@@ -66,13 +94,19 @@ const unsubscribe = store.subscribe(() => console.log('updated state', store.get
 //
 //for bind action bindActionCreators
 
-const actions = bindActionCreators({orderCake, reStockCake}, store.dispatch);
+const actions = bindActionCreators({orderCake, reStockCake, orderIceCream, restockIceCream}, store.dispatch);
 
 // call actions - how many times you want
 actions.orderCake()
 actions.orderCake()
 actions.orderCake()
 actions.reStockCake(3)
+
+console.log('--- for ice creams ---');
+actions.orderIceCream()
+actions.orderIceCream()
+actions.orderIceCream()
+actions.restockIceCream(3)
 unsubscribe()
 
 
