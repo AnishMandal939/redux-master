@@ -25,3 +25,46 @@ One store for the entire application
       `npm i redux-logger`
 
 
+### Async Actions
+  - Synchronous Actions:
+      - As soon as an action was dispatched, the state was immediately updated.
+      - If you dispatch the CAKE_ORDERED action, the numOfCakes was right away decremented by 1.
+      - Same with ICECREAM_ORDERED action as well.
+
+  - Async Actions:
+    - Asynchronous API calls to fetch data from an end point and use that data in your application.
+
+#### ----- Our Application -----
+  - Fetches a list of users from an API end point and stores it in the redux store.
+  State ? - What states gonna look like
+  Actions ? - what are the different actions.
+  Reducer ? how reducer is going to work.
+
+  State:
+```
+     state{
+        loading: true,
+        data: [], // list of users
+        error: ''
+      }
+```
+  loading: Display a loading spinner in your component
+  data: list of users
+  error: Display error to the users
+
+  Actions:
+    FETCH_USERS_REQUESTED - fetch list of users
+    FETCH_USERS_SUCCEEDED - fetched successfully
+    FETCH_USERS_FAILED    - error when fetching the data
+
+  Reducers:
+    case: FETCH_USERS_REQUESTED
+      loading: true
+    case: FETCH_USERS_SUCCEEDED
+        loading: false
+        users: data(from api)
+    case: FETCH_USERS_FAILED
+        loading: false
+        error: error (from api)
+
+- - Creating AsyncActions.js  - for async action
