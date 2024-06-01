@@ -7,6 +7,12 @@ const createStore = redux.createStore;
 const bindActionCreators = redux.bindActionCreators;
 const combineReducers = redux.combineReducers;
 
+// apply middleware ;import {  } from "";
+const applyMiddleware = redux.applyMiddleware;
+
+// require redux logger : package
+ const reduxLogger = require('redux-logger')
+const logger = reduxLogger.createLogger()
 
 const CAKE_ORDERED = 'CAKE_ORDERED';
 const CAKE_RESTOCKED = 'CAKE_RESTOCKED';
@@ -96,14 +102,17 @@ const rootReducer = combineReducers({
   cake: cakeReducer,
   iceCream: iceCreamReducer
 })
-  const store = createStore(rootReducer)
+  const store = createStore(rootReducer, applyMiddleware(logger))
 
 //expose method
 console.log('initial state', store.getState())
 
 // 3rd resp
 const unsubscribe = store.subscribe(() =>
-  console.log('updated state', store.getState()));
+ // console.log('updated state', store.getState())
+  // instead of console log , logger is used to log the states, `{}`
+{}
+);
 
 //4th resp  dispatch
 //store.dispatch(orderCake())

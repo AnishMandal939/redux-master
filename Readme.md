@@ -14,3 +14,14 @@ One store for the entire application
 ## to manage nestedState - 
   - we'll be making use of Immer package :
     - npm i immer
+
+
+## Middleware
+  - Is the suggest way to extend Redux with custom functionality.
+  - provides a third party extension point between dispatching an actoin, and the moment it reaches the reducer.
+  - Use middleware for logging, crash reporting, performing asynchronous tasks etc.
+
+    - for logging we'll be using library called redux-logger
+      `npm i redux-logger`
+
+
