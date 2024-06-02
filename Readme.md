@@ -68,3 +68,8 @@ One store for the entire application
         error: error (from api)
 
 - - Creating AsyncActions.js  - for async action
+  - packages we need to install to work with api call 
+    1. axios - npm install axios
+    2. redux-thunk - npm install redux-thunk
+        - redux-thunk : define  async action creators
+        - it is middleware
