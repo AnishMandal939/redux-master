@@ -73,3 +73,36 @@ One store for the entire application
     2. redux-thunk - npm install redux-thunk
         - redux-thunk : define  async action creators
         - it is middleware
+
+
+
+### ----- Transition to Redusjs-toolkit ------
+
+  - Redux Concerns:
+    - Redux requires too much of boilerplate code
+      - Action
+      - Action object
+      - Action creators
+      - Switch statement in reducer
+
+    A lot of other packages have to be installed to work with redux
+      - Redux-thunk : for async actions
+      - Immer : for handling nested state object
+      - Redux-devtools : help to debug redux applications
+
+    To improve this much of hustles redux-toolkit were introduced
+
+#####   redux-toolkit
+  - Redux toolkit is the oficial, opiniated, batteries-included toolset for efficient Redux development
+    - Abstract over the setup process
+    - Handle the most common use cases
+    - Include some useful utilities
+
+    == building same application using redux-toolkit
+
+###### setups redux toolkit
+  - rtk-demo : is the folder where we'll be making stuffs using redux-toolkit
+
+  - initialize package.json with default settings: `npm init --y`
+  - for reduxjs toolkit : `npm i @reduxjs/toolkit`
+  - 
