@@ -105,4 +105,12 @@ One store for the entire application
 
   - initialize package.json with default settings: `npm init --y`
   - for reduxjs toolkit : `npm i @reduxjs/toolkit`
-  - 
+
+ pattern of redux-toolkit
+  - create a feature slice using a createSlice function which generates ``actions`` and  ``reducers`` automatically
+  - perform direct mutations on the state : and that is being ok with immer is being used under the hood
+  - create a store using the configureStore function and attach the reducer
+  - dispatch action on the store using store.dispatch
+  - inspect the state using the store.getState()
+  - and listen the changes using the store.subscribe()
+
