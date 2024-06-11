@@ -124,3 +124,28 @@ setups:
   - redux-logger should be passed as middleware, take a look over store.js where i first imported logger from redux logger and then extracted object from reduxLogger -  reduxlogger.createLogger() 
   finally attached the logger as middleware in reducer 
   lastly: used logger in index.js where we subscribe the initialstate
+
+#### Extra reducer:
+Basic methodology of working with extra reducer is to make use of action types to trigger on any other reducers:
+  here in this case of redux - we made use of CAKE_ORDERED action in icecreamreducer and whenever we call cakeorderedreducer it deducts the icecream basis of action types CAKE_ORDERED acc to logic , so in reduxjs-toolkit it does not happen , if we need similar functionalities then we need to make use of extra reducer
+To overview concepts : take a look in setup/iceCreamReducer.js 
+  - CAKE_ORDERED
+
+- working with reduxjs-toolkit: 
+  - syntax is as follows:
+  icecreamslice.js
+    extraReducers: (builder) => {
+      builder.addCase('cake/ordered', (state) => {
+      state.numOfIceCreams--
+  })
+  }
+
+ // or 
+make sure to import cakeactions from cakeSlice
+
+const {cakeActions} = require('../cake/cakeSlice.js')
+ extraReducers: (builder) => {
+      builder.addCase(cakeActions.ordered, (state) => {
+      state.numOfIceCreams--
+  })
+  }
