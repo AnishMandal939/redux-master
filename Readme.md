@@ -114,3 +114,13 @@ One store for the entire application
   - inspect the state using the store.getState()
   - and listen the changes using the store.subscribe()
 
+
+#### redux logger
+  - npm i redux-logger
+
+Instead of maintaining logs in console.log(), making use of redux logger helps to visualize the logs in better way.
+
+setups:
+  - redux-logger should be passed as middleware, take a look over store.js where i first imported logger from redux logger and then extracted object from reduxLogger -  reduxlogger.createLogger() 
+  finally attached the logger as middleware in reducer 
+  lastly: used logger in index.js where we subscribe the initialstate
