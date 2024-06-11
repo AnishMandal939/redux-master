@@ -149,3 +149,38 @@ const {cakeActions} = require('../cake/cakeSlice.js')
       state.numOfIceCreams--
   })
   }
+
+#### Working with asynchronous action : async thunk
+ - start with redux way:
+    - initially we use to make a flag 'loading' state to load data if loading = true;
+    and on the basis of flag status we dispatch actions and show what result needs to be shown , now to achieve this functionality in reduxjs-toolkit 
+    --- we will be working with new folder : user/userSlice.js
+
+    createAsynthnk function - create 
+    it accepts :
+      action.types as its 1st argument
+      and a callback function as a 2nd argument
+      callback function contains async logic and return a promise
+      createAsyncthunk will dispatch the promise lifecycle actions that we can listen using extraReducers
+        - the lifecycle includes, 
+          - pending : for when the request is made
+          - fulfilled : for when the request is succeded
+          - rejected : for when the request is failed
+eport reducer a default export and fetchUsers function as a named exoport
+
+- in store.js - make sure to attach the reducer to the store
+- in index.js - dispatch the async action
+
+
+redux-thunk is applied as a middleware to the store under the hood
+
+---- This is pretty much it to work with Async request with reduxjs-toolkit
+
+
+
+if you want to know how reduxjs/toolkit working under the hood 
+- look inside: node_modules/immer and node_modules/redux-thunk
+
+
+#### That's it for concept of redux, reduxjs-toolkit
+  - now you are ready to work with ui library like : ReactJs
