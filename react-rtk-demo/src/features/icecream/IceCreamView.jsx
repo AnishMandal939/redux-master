@@ -15,7 +15,7 @@ export const IceCreamView = () => {
     <div>
       <h2>Number of ice creams - {numOfIceCreams}</h2>
       <button onClick={() => dispatch(orderedIceCream())}>Order ice cream</button>
-      <input type="number" value={value} onChange={handleChangeRestockValue} />
+      <input type="number" value={value} onWheel={(e) => e.target.blur()} onChange={handleChangeRestockValue} />
       <button onClick={() => dispatch(restockedIceCream(value))}>restock ice cream</button>
     </div>
   )
