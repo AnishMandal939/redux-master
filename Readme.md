@@ -184,3 +184,6 @@ if you want to know how reduxjs/toolkit working under the hood
 
 #### That's it for concept of redux, reduxjs-toolkit
   - now you are ready to work with ui library like : ReactJs
+
+
+To read data from the redux store : we use useSelector((state) => state )
