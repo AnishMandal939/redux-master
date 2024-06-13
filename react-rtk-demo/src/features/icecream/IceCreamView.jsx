@@ -4,7 +4,7 @@ import {orderedIceCream, restockedIceCream} from './iceCreamSlice.js'
 import { useState } from "react";
 export const IceCreamView = () => {
   // allow the user to input restock value
-  const [value, setValue] = useState()
+  const [value, setValue] = useState(1)
   const numOfIceCreams = useSelector((state) => state.iceCream.numOfIceCreams)
   const dispatch = useDispatch();
   const handleChangeRestockValue = (e) => {

@@ -187,3 +187,8 @@ if you want to know how reduxjs/toolkit working under the hood
 
 
 To read data from the redux store : we use useSelector((state) => state )
+
+useDispatch() - used to dispatch an action with react-redux
+it is used for mounting action for present action in reducers 
+
+
